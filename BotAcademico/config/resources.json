@@ -1,0 +1,88 @@
+{
+  "algebra_lineal": {
+    "keywords": ["matriz", "vector", "determinante", "eigenvalor", "eigenvector", "lu", "inversa", "sistema", "ecuaciones"],
+    "resources": [
+      {
+        "type": "video",
+        "title": "Álgebra Lineal - Khan Academy",
+        "url": "https://es.khanacademy.org/math/linear-algebra",
+        "description": "Curso completo de álgebra lineal con explicaciones visuales"
+      },
+      {
+        "type": "libro",
+        "title": "Linear Algebra and Its Applications - David Lay",
+        "url": "https://www.pearson.com/store/p/linear-algebra-and-its-applications/P100000843349",
+        "description": "Libro de texto estándar universitario"
+      },
+      {
+        "type": "ejercicios",
+        "title": "Problemas Resueltos de Álgebra Lineal",
+        "url": "https://www.mathematica.cl/algebra-lineal/",
+        "description": "Colección de ejercicios con soluciones paso a paso"
+      }
+    ]
+  },
+  "calculo": {
+    "keywords": ["derivada", "integral", "limite", "continuidad", "diferencial", "funcion", "tangente"],
+    "resources": [
+      {
+        "type": "video",
+        "title": "Cálculo Diferencial e Integral - Khan Academy",
+        "url": "https://es.khanacademy.org/math/calculus-1",
+        "description": "Curso completo de cálculo desde conceptos básicos"
+      },
+      {
+        "type": "simulador",
+        "title": "Graficador de Funciones - Desmos",
+        "url": "https://www.desmos.com/calculator",
+        "description": "Herramienta para visualizar funciones y sus derivadas"
+      },
+      {
+        "type": "libro",
+        "title": "Cálculo - Stewart",
+        "url": "https://www.cengage.com/c/calculus-8e-stewart/",
+        "description": "Libro de texto completo con ejercicios graduados"
+      }
+    ]
+  },
+  "estadistica": {
+    "keywords": ["media", "mediana", "varianza", "probabilidad", "distribucion", "hipotesis", "muestra", "correlacion"],
+    "resources": [
+      {
+        "type": "video",
+        "title": "Estadística y Probabilidad - Khan Academy",
+        "url": "https://es.khanacademy.org/math/statistics-probability",
+        "description": "Curso completo desde estadística descriptiva hasta inferencial"
+      },
+      {
+        "type": "software",
+        "title": "R Studio - Análisis Estadístico",
+        "url": "https://www.rstudio.com/",
+        "description": "Software libre para análisis estadístico y visualización"
+      },
+      {
+        "type": "simulador",
+        "title": "Simulador de Distribuciones",
+        "url": "https://seeing-theory.brown.edu/",
+        "description": "Visualizaciones interactivas de conceptos estadísticos"
+      }
+    ]
+  },
+  "geometria": {
+    "keywords": ["triangulo", "cuadrado", "circulo", "area", "perimetro", "volumen", "angulo", "teorema"],
+    "resources": [
+      {
+        "type": "video",
+        "title": "Geometría - Khan Academy",
+        "url": "https://es.khanacademy.org/math/geometry",
+        "description": "Curso completo de geometría plana y espacial"
+      },
+      {
+        "type": "simulador",
+        "title": "GeoGebra - Geometría Interactiva",
+        "url": "https://www.geogebra.org/",
+        "description": "Herramienta para construcciones geométricas dinámicas"
+      }
+    ]
+  }
+}

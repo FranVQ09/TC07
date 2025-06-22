@@ -1,0 +1,110 @@
+ÁLGEBRA LINEAL - CONCEPTOS FUNDAMENTALES
+
+1. VECTORES
+Un vector es una cantidad que tiene tanto magnitud como dirección. En matemáticas, los vectores se representan como listas ordenadas de números.
+
+Ejemplo: v = [3, 4] representa un vector en 2D
+- Magnitud: ||v|| = √(3² + 4²) = 5
+- Los vectores se pueden sumar, restar y multiplicar por escalares
+
+Operaciones básicas:
+- Suma: [a, b] + [c, d] = [a+c, b+d]
+- Producto escalar: [a, b] · [c, d] = ac + bd
+- Producto vectorial (en 3D): produce un vector perpendicular
+
+2. MATRICES
+Una matriz es un arreglo rectangular de números organizados en filas y columnas.
+
+Ejemplo: A = [[1, 2], [3, 4]]
+- Dimensión: 2x2 (2 filas, 2 columnas)
+- Elemento a₁₁ = 1, a₁₂ = 2, a₂₁ = 3, a₂₂ = 4
+
+Operaciones con matrices:
+- Suma: se suman elementos correspondientes
+- Multiplicación: (AB)ᵢⱼ = Σ(aᵢₖ × bₖⱼ)
+- Transposición: filas se convierten en columnas
+
+3. DETERMINANTES
+El determinante es un número que se calcula a partir de una matriz cuadrada.
+
+Para matriz 2x2: det(A) = ad - bc donde A = [[a,b],[c,d]]
+Para matriz 3x3: se usa la regla de Sarrus o cofactores
+
+Propiedades:
+- Si det(A) = 0, la matriz es singular (no invertible)
+- Si det(A) ≠ 0, la matriz es invertible
+- det(AB) = det(A) × det(B)
+
+4. DESCOMPOSICIÓN LU
+La descomposición LU factoriza una matriz A como el producto A = LU, donde:
+- L es una matriz triangular inferior (Lower)
+- U es una matriz triangular superior (Upper)
+
+Utilidad:
+- Resolver sistemas de ecuaciones lineales eficientemente
+- Calcular determinantes
+- Encontrar la matriz inversa
+
+Proceso:
+1. Aplicar eliminación gaussiana
+2. L contiene los multiplicadores usados
+3. U es la matriz escalonada resultante
+
+5. VECTORES PROPIOS Y VALORES PROPIOS
+Un vector propio (eigenvector) de una matriz A es un vector v tal que:
+Av = λv, donde λ es el valor propio (eigenvalue)
+
+Interpretación:
+- El vector solo cambia de escala, no de dirección
+- λ indica cuánto se escala el vector
+- Si λ > 1: el vector se estira
+- Si 0 < λ < 1: el vector se contrae
+- Si λ < 0: el vector se invierte
+
+Aplicaciones:
+- Análisis de componentes principales (PCA)
+- Sistemas dinámicos
+- Procesamiento de imágenes
+- Análisis de redes
+
+6. MATRIZ INVERSA
+La matriz inversa A⁻¹ de una matriz A satisface: A × A⁻¹ = I (matriz identidad)
+
+Métodos para calcular:
+- Eliminación de Gauss-Jordan
+- Matriz adjunta: A⁻¹ = (1/det(A)) × adj(A)
+- Descomposición LU
+
+Condiciones:
+- Solo matrices cuadradas pueden tener inversa
+- det(A) ≠ 0 para que exista la inversa
+- (A⁻¹)⁻¹ = A
+- (AB)⁻¹ = B⁻¹A⁻¹
+
+7. SISTEMAS DE ECUACIONES LINEALES
+Un sistema de ecuaciones lineales se puede representar como Ax = b
+
+Métodos de solución:
+- Eliminación gaussiana
+- Regla de Cramer (para sistemas pequeños)
+- Descomposición LU
+- Métodos iterativos (Jacobi, Gauss-Seidel)
+
+Tipos de soluciones:
+- Única solución: det(A) ≠ 0
+- Infinitas soluciones: sistema compatible indeterminado
+- Sin solución: sistema incompatible
+
+8. ESPACIOS VECTORIALES
+Un espacio vectorial es un conjunto de vectores con operaciones definidas.
+
+Propiedades:
+- Cerradura bajo suma y multiplicación escalar
+- Existe vector cero
+- Cada vector tiene un inverso aditivo
+- Propiedades asociativa, conmutativa y distributiva
+
+Conceptos importantes:
+- Base: conjunto de vectores linealmente independientes
+- Dimensión: número de vectores en la base
+- Subespacio: subconjunto que es también espacio vectorial

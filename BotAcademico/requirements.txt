@@ -1,6 +1,10 @@
-langchain-community
-swig
-chromadb
-openai
-python-dotenv
-
+langchain-community==0.0.13
+langchain==0.1.0
+chromadb==0.4.22
+openai==1.7.2
+python-dotenv==1.0.0
+requests==2.31.0
+PyPDF2==3.0.1
+tiktoken==0.5.2
+numpy==1.24.3
+pandas==2.0.3

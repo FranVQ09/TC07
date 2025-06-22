@@ -1,0 +1,452 @@
+# ================================
+# ESTRUCTURA DE CARPETAS COMPLETA
+# ================================
+
+BotAcademico/
+├── agents/
+│   ├── __init__.py
+│   ├── enhanced_retriever.py
+│   ├── enhanced_tutor.py
+│   └── dynamic_recommender.py
+├── config/
+│   ├── __init__.py
+│   ├── resources.json (se crea automáticamente)
+│   └── example_config.py
+├── data/
+│   ├── algebra_lineal.txt
+│   ├── calculo.txt
+│   ├── estadistica.txt
+│   ├── geometria.txt
+│   └── matematicas_generales.pdf
+├── .env
+├── main_enhanced.py
+├── requirements.txt
+└── README.md
+
+# ================================
+# ARCHIVO: data/algebra_lineal.txt
+# ================================
+
+ÁLGEBRA LINEAL - CONCEPTOS FUNDAMENTALES
+
+1. VECTORES
+Un vector es una cantidad que tiene tanto magnitud como dirección. En matemáticas, los vectores se representan como listas ordenadas de números.
+
+Ejemplo: v = [3, 4] representa un vector en 2D
+- Magnitud: ||v|| = √(3² + 4²) = 5
+- Los vectores se pueden sumar, restar y multiplicar por escalares
+
+Operaciones básicas:
+- Suma: [a, b] + [c, d] = [a+c, b+d]
+- Producto escalar: [a, b] · [c, d] = ac + bd
+- Producto vectorial (en 3D): produce un vector perpendicular
+
+2. MATRICES
+Una matriz es un arreglo rectangular de números organizados en filas y columnas.
+
+Ejemplo: A = [[1, 2], [3, 4]]
+- Dimensión: 2x2 (2 filas, 2 columnas)
+- Elemento a₁₁ = 1, a₁₂ = 2, a₂₁ = 3, a₂₂ = 4
+
+Operaciones con matrices:
+- Suma: se suman elementos correspondientes
+- Multiplicación: (AB)ᵢⱼ = Σ(aᵢₖ × bₖⱼ)
+- Transposición: filas se convierten en columnas
+
+3. DETERMINANTES
+El determinante es un número que se calcula a partir de una matriz cuadrada.
+
+Para matriz 2x2: det(A) = ad - bc donde A = [[a,b],[c,d]]
+Para matriz 3x3: se usa la regla de Sarrus o cofactores
+
+Propiedades:
+- Si det(A) = 0, la matriz es singular (no invertible)
+- Si det(A) ≠ 0, la matriz es invertible
+- det(AB) = det(A) × det(B)
+
+4. DESCOMPOSICIÓN LU
+La descomposición LU factoriza una matriz A como el producto A = LU, donde:
+- L es una matriz triangular inferior (Lower)
+- U es una matriz triangular superior (Upper)
+
+Utilidad:
+- Resolver sistemas de ecuaciones lineales eficientemente
+- Calcular determinantes
+- Encontrar la matriz inversa
+
+Proceso:
+1. Aplicar eliminación gaussiana
+2. L contiene los multiplicadores usados
+3. U es la matriz escalonada resultante
+
+5. VECTORES PROPIOS Y VALORES PROPIOS
+Un vector propio (eigenvector) de una matriz A es un vector v tal que:
+Av = λv, donde λ es el valor propio (eigenvalue)
+
+Interpretación:
+- El vector solo cambia de escala, no de dirección
+- λ indica cuánto se escala el vector
+- Si λ > 1: el vector se estira
+- Si 0 < λ < 1: el vector se contrae
+- Si λ < 0: el vector se invierte
+
+Aplicaciones:
+- Análisis de componentes principales (PCA)
+- Sistemas dinámicos
+- Procesamiento de imágenes
+- Análisis de redes
+
+6. MATRIZ INVERSA
+La matriz inversa A⁻¹ de una matriz A satisface: A × A⁻¹ = I (matriz identidad)
+
+Métodos para calcular:
+- Eliminación de Gauss-Jordan
+- Matriz adjunta: A⁻¹ = (1/det(A)) × adj(A)
+- Descomposición LU
+
+Condiciones:
+- Solo matrices cuadradas pueden tener inversa
+- det(A) ≠ 0 para que exista la inversa
+- (A⁻¹)⁻¹ = A
+- (AB)⁻¹ = B⁻¹A⁻¹
+
+7. SISTEMAS DE ECUACIONES LINEALES
+Un sistema de ecuaciones lineales se puede representar como Ax = b
+
+Métodos de solución:
+- Eliminación gaussiana
+- Regla de Cramer (para sistemas pequeños)
+- Descomposición LU
+- Métodos iterativos (Jacobi, Gauss-Seidel)
+
+Tipos de soluciones:
+- Única solución: det(A) ≠ 0
+- Infinitas soluciones: sistema compatible indeterminado
+- Sin solución: sistema incompatible
+
+8. ESPACIOS VECTORIALES
+Un espacio vectorial es un conjunto de vectores con operaciones definidas.
+
+Propiedades:
+- Cerradura bajo suma y multiplicación escalar
+- Existe vector cero
+- Cada vector tiene un inverso aditivo
+- Propiedades asociativa, conmutativa y distributiva
+
+Conceptos importantes:
+- Base: conjunto de vectores linealmente independientes
+- Dimensión: número de vectores en la base
+- Subespacio: subconjunto que es también espacio vectorial
+
+# ================================
+# ARCHIVO: data/calculo.txt
+# ================================
+
+CÁLCULO DIFERENCIAL E INTEGRAL
+
+1. LÍMITES
+El límite de una función f(x) cuando x se acerca a un valor a es:
+lim(x→a) f(x) = L
+
+Interpretación: f(x) se acerca a L cuando x se acerca a a
+
+Propiedades de límites:
+- lim(x→a) [f(x) + g(x)] = lim(x→a) f(x) + lim(x→a) g(x)
+- lim(x→a) [f(x) × g(x)] = lim(x→a) f(x) × lim(x→a) g(x)
+- lim(x→a) [f(x)/g(x)] = lim(x→a) f(x) / lim(x→a) g(x), si lim(x→a) g(x) ≠ 0
+
+Límites importantes:
+- lim(x→0) (sin x)/x = 1
+- lim(x→∞) (1 + 1/x)^x = e ≈ 2.718
+
+2. CONTINUIDAD
+Una función f(x) es continua en x = a si:
+1. f(a) está definida
+2. lim(x→a) f(x) existe
+3. lim(x→a) f(x) = f(a)
+
+Tipos de discontinuidades:
+- Removible: se puede "llenar el hueco"
+- Salto: límites laterales diferentes
+- Infinita: la función tiende a infinito
+
+3. DERIVADAS
+La derivada de f(x) en x = a es:
+f'(a) = lim(h→0) [f(a+h) - f(a)]/h
+
+Interpretación geométrica:
+- Pendiente de la recta tangente
+- Tasa de cambio instantánea
+
+Reglas de derivación:
+- Regla de la potencia: d/dx(x^n) = nx^(n-1)
+- Regla del producto: d/dx[f(x)g(x)] = f'(x)g(x) + f(x)g'(x)
+- Regla del cociente: d/dx[f(x)/g(x)] = [f'(x)g(x) - f(x)g'(x)]/[g(x)]²
+- Regla de la cadena: d/dx[f(g(x))] = f'(g(x)) × g'(x)
+
+Derivadas comunes:
+- d/dx(sin x) = cos x
+- d/dx(cos x) = -sin x
+- d/dx(e^x) = e^x
+- d/dx(ln x) = 1/x
+
+4. APLICACIONES DE DERIVADAS
+- Encontrar máximos y mínimos
+- Análisis de concavidad
+- Problemas de optimización
+- Análisis de movimiento (velocidad, aceleración)
+
+Criterios:
+- Primera derivada: f'(x) = 0 para puntos críticos
+- Segunda derivada: f''(x) > 0 (cóncava hacia arriba), f''(x) < 0 (cóncava hacia abajo)
+
+5. INTEGRALES INDEFINIDAS
+La integral indefinida (antiderivada) de f(x) es:
+∫ f(x) dx = F(x) + C, donde F'(x) = f(x)
+
+Integrales básicas:
+- ∫ x^n dx = x^(n+1)/(n+1) + C (n ≠ -1)
+- ∫ 1/x dx = ln|x| + C
+- ∫ e^x dx = e^x + C
+- ∫ sin x dx = -cos x + C
+- ∫ cos x dx = sin x + C
+
+Técnicas de integración:
+- Sustitución: ∫ f(g(x))g'(x) dx = ∫ f(u) du donde u = g(x)
+- Integración por partes: ∫ u dv = uv - ∫ v du
+- Fracciones parciales para funciones racionales
+
+6. INTEGRALES DEFINIDAS
+La integral definida de f(x) desde a hasta b es:
+∫[a to b] f(x) dx = F(b) - F(a)
+
+Interpretación geométrica:
+- Área bajo la curva (si f(x) ≥ 0)
+- Área neta (considera áreas negativas)
+
+Teorema Fundamental del Cálculo:
+Si F(x) = ∫[a to x] f(t) dt, entonces F'(x) = f(x)
+
+7. APLICACIONES DE INTEGRALES
+- Cálculo de áreas entre curvas
+- Volúmenes de sólidos de revolución
+- Longitud de arco
+- Trabajo y energía
+- Probabilidad (área bajo curvas de densidad)
+
+8. SERIES INFINITAS
+Una serie infinita es: Σ(n=1 to ∞) aₙ = a₁ + a₂ + a₃ + ...
+
+Pruebas de convergencia:
+- Prueba de la razón: lim|aₙ₊₁/aₙ| < 1
+- Prueba de la raíz: lim|aₙ|^(1/n) < 1
+- Prueba de comparación
+- Prueba integral
+
+Series importantes:
+- Geométrica: Σ ar^n = a/(1-r) si |r| < 1
+- Serie de Taylor: f(x) = Σ f^(n)(a)/n! × (x-a)^n
+
+# ================================
+# ARCHIVO: data/estadistica.txt
+# ================================
+
+ESTADÍSTICA Y PROBABILIDAD
+
+1. CONCEPTOS BÁSICOS
+La estadística es la ciencia que se ocupa de la recolección, análisis e interpretación de datos.
+
+Tipos de datos:
+- Cualitativos: categorías (color, género)
+- Cuantitativos: números (altura, peso)
+  - Discretos: conteos (número de hijos)
+  - Continuos: mediciones (temperatura)
+
+Población vs Muestra:
+- Población: conjunto completo de elementos
+- Muestra: subconjunto de la población
+- Inferencia: usar la muestra para conocer la población
+
+2. MEDIDAS DE TENDENCIA CENTRAL
+Media aritmética: x̄ = (x₁ + x₂ + ... + xₙ)/n
+- Sensible a valores extremos
+- Más común en datos simétricos
+
+Mediana: valor central cuando los datos están ordenados
+- Robusta ante valores extremos
+- Útil para datos asimétricos
+
+Moda: valor que aparece con mayor frecuencia
+- Puede no existir o ser múltiple
+- Útil para datos categóricos
+
+3. MEDIDAS DE DISPERSIÓN
+Rango: diferencia entre el máximo y mínimo
+R = xₘₐₓ - xₘᵢₙ
+
+Varianza: promedio de los cuadrados de las desviaciones
+s² = Σ(xᵢ - x̄)²/(n-1)
+
+Desviación estándar: raíz cuadrada de la varianza
+s = √s²
+
+Coeficiente de variación: CV = s/x̄ × 100%
+- Permite comparar dispersiones de diferentes datasets
+
+4. PROBABILIDAD
+Probabilidad: medida de la posibilidad de que ocurra un evento
+P(A) = número de casos favorables / número de casos posibles
+
+Propiedades:
+- 0 ≤ P(A) ≤ 1
+- P(A) + P(A^c) = 1 (evento complementario)
+- P(∅) = 0, P(Ω) = 1
+
+Reglas de probabilidad:
+- Regla de la suma: P(A ∪ B) = P(A) + P(B) - P(A ∩ B)
+- Regla del producto: P(A ∩ B) = P(A) × P(B|A)
+- Eventos independientes: P(A ∩ B) = P(A) × P(B)
+
+5. DISTRIBUCIONES DE PROBABILIDAD
+Distribución Binomial: n ensayos independientes, probabilidad p de éxito
+P(X = k) = C(n,k) × p^k × (1-p)^(n-k)
+- Media: μ = np
+- Varianza: σ² = np(1-p)
+
+Distribución Normal: distribución continua en forma de campana
+- Parámetros: μ (media) y σ (desviación estándar)
+- Regla empírica: 68%-95%-99.7%
+- Estandarización: Z = (X - μ)/σ
+
+Distribución de Poisson: eventos raros en tiempo/espacio fijo
+P(X = k) = (λ^k × e^(-λ))/k!
+- λ es la tasa promedio de ocurrencia
+
+6. TEOREMA DEL LÍMITE CENTRAL
+Cuando n es grande, la distribución de medias muestrales se aproxima a una distribución normal, independientemente de la distribución original.
+
+Consecuencias:
+- Permite hacer inferencias sobre poblaciones no normales
+- Base para muchos métodos estadísticos
+- La aproximación mejora con n mayor
+
+7. INTERVALOS DE CONFIANZA
+Un intervalo de confianza estima un parámetro poblacional con cierto nivel de confianza.
+
+Para la media (σ conocida):
+IC = x̄ ± z_{α/2} × (σ/√n)
+
+Para la media (σ desconocida):
+IC = x̄ ± t_{α/2} × (s/√n)
+
+Interpretación:
+- 95% de confianza: si repitiera el muestreo muchas veces, 95% de los intervalos contendrían el parámetro real
+
+8. PRUEBAS DE HIPÓTESIS
+Proceso para tomar decisiones sobre parámetros poblacionales.
+
+Pasos:
+1. Formular hipótesis (H₀ y H₁)
+2. Elegir nivel de significancia (α)
+3. Calcular estadístico de prueba
+4. Determinar valor p
+5. Tomar decisión
+
+Tipos de errores:
+- Error Tipo I: rechazar H₀ cuando es verdadera (α)
+- Error Tipo II: no rechazar H₀ cuando es falsa (β)
+
+Pruebas comunes:
+- Prueba t para medias
+- Prueba z para proporciones
+- Prueba χ² para independencia
+- ANOVA para comparar múltiples medias
+
+9. REGRESIÓN LINEAL
+Modelo que relaciona una variable dependiente con una o más independientes.
+
+Regresión lineal simple: y = β₀ + β₁x + ε
+
+Método de mínimos cuadrados:
+- Minimiza la suma de cuadrados de residuos
+- β₁ = Σ(xᵢ - x̄)(yᵢ - ȳ) / Σ(xᵢ - x̄)²
+- β₀ = ȳ - β₁x̄
+
+Coeficiente de correlación: r = Σ(xᵢ - x̄)(yᵢ - ȳ) / √[Σ(xᵢ - x̄)² × Σ(yᵢ - ȳ)²]
+- -1 ≤ r ≤ 1
+- r² = proporción de varianza explicada
+
+# ================================
+# ARCHIVO: data/geometria.txt
+# ================================
+
+GEOMETRÍA - CONCEPTOS FUNDAMENTALES
+
+1. GEOMETRÍA PLANA
+Elementos básicos:
+- Punto: posición sin dimensión
+- Recta: infinitos puntos en línea
+- Plano: superficie bidimensional infinita
+
+Ángulos:
+- Agudo: < 90°
+- Recto: = 90°
+- Obtuso: > 90° y < 180°
+- Llano: = 180°
+
+2. TRIÁNGULOS
+Clasificación por lados:
+- Equilátero: tres lados iguales
+- Isósceles: dos lados iguales
+- Escaleno: tres lados diferentes
+
+Clasificación por ángulos:
+- Acutángulo: tres ángulos agudos
+- Rectángulo: un ángulo recto
+- Obtusángulo: un ángulo obtuso
+
+Propiedades:
+- Suma de ángulos internos = 180°
+- Teorema de Pitágoras: a² + b² = c²
+- Área = (base × altura)/2
+
+3. CUADRILÁTEROS
+Paralelogramo: lados opuestos paralelos
+- Rectángulo: cuatro ángulos rectos
+- Rombo: cuatro lados iguales
+- Cuadrado: rectángulo + rombo
+
+Trapecio: un par de lados paralelos
+Área = (base mayor + base menor) × altura / 2
+
+4. CÍRCULOS
+Elementos:
+- Radio: distancia del centro a cualquier punto
+- Diámetro: 2 × radio
+- Circunferencia: 2πr
+- Área: πr²
+
+Ángulos:
+- Central: vértice en el centro
+- Inscrito: vértice en la circunferencia
+- Relación: ángulo inscrito = ángulo central / 2
+
+5. GEOMETRÍA DEL ESPACIO
+Prismas: bases paralelas y congruentes
+- Volumen = área base × altura
+- Área superficial = 2 × área base + área lateral
+
+Pirámides: base poligonal, vértice común
+- Volumen = (área base × altura) / 3
+
+Cilindros:
+- Volumen = πr²h
+- Área superficial = 2πr² + 2πrh
+
+Conos:
+- Volumen = (πr²h) / 3
+- Área superficial = πr² + πrl
+
+Esferas:
+- Volumen = (4πr³) / 3
+- Área superficial = 4πr²
