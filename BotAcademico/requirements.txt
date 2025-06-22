@@ -1,0 +1,6 @@
+langchain-community
+swig
+chromadb
+openai
+python-dotenv
+
