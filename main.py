@@ -1,16 +1,18 @@
 from agentes import AgenteTutorOllama, AgenteEvaluadorOllama, AgenteAsistenteOllama
+from coordinador import CoordinadorMultiagentes
 
 def main():
     print("🤖 ¡Sistema de Multiagentes con OLLAMA! (100% GRATIS)")
     print("=" * 60)
     print("🚀 Usando IA local - Sin costos, sin límites!")
     
-    # Crear los agentes con Ollama
-    print("\n⏳ Inicializando agentes...")
-    tutor = AgenteTutorOllama()
-    evaluador = AgenteEvaluadorOllama()
-    asistente = AgenteAsistenteOllama()
-    print("✅ ¡Agentes listos!")
+    # Crear el coordinador de multiagentes
+    coordinador = CoordinadorMultiagentes()
+    
+    # Acceso directo a agentes para compatibilidad
+    tutor = coordinador.tutor
+    evaluador = coordinador.evaluador  
+    asistente = coordinador.asistente
     
     # Presentar los agentes
     print("\n👥 Agentes disponibles:")
@@ -24,9 +26,11 @@ def main():
         print("1. 🎓 Explicar un tema (Tutor)")
         print("2. 📝 Crear pregunta de examen (Evaluador)")
         print("3. 💡 Resolver una duda (Asistente)")
-        print("4. 🚪 Salir")
+        print("4. 🔄 Ver colaboración entre agentes")
+        print("5. 📊 Ver estadísticas del sistema")
+        print("6. 🚪 Salir")
         
-        opcion = input("\n👉 Elige una opción (1-4): ").strip()
+        opcion = input("\n👉 Elige una opción (1-6): ").strip()
         
         if opcion == "1":
             tema = input("📚 ¿Qué tema quieres que explique? ")
@@ -53,6 +57,13 @@ def main():
             print(respuesta)
             
         elif opcion == "4":
+            tema = input("🔄 ¿Sobre qué tema quieres ver la colaboración? ")
+            coordinador.colaboracion_agentes(tema)
+            
+        elif opcion == "5":
+            coordinador.mostrar_estadisticas()
+            
+        elif opcion == "6":
             print("\n👋 ¡Hasta luego! Gracias por usar el sistema de multiagentes")
             break
             
