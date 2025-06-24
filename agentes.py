@@ -1,15 +1,15 @@
+# agentes.py
 import requests
-import json
+from rag import RAG
 
 class AgenteOllamaBase:
     def __init__(self, nombre, rol):
         self.nombre = nombre
         self.rol = rol
-        self.modelo = "llama3.2:3b"  # El modelo que descargamos
+        self.modelo = "llama3.2:3b"
         self.url = "http://localhost:11434/api/chat"
     
     def generar_respuesta(self, prompt):
-        """Genera una respuesta usando Ollama localmente"""
         try:
             data = {
                 "model": self.modelo,
@@ -19,9 +19,7 @@ class AgenteOllamaBase:
                 ],
                 "stream": False
             }
-            
             response = requests.post(self.url, json=data)
-            
             if response.status_code == 200:
                 result = response.json()
                 return result['message']['content']
@@ -34,11 +32,23 @@ class AgenteOllamaBase:
         return f"Hola, soy {self.nombre}, tu {self.rol}"
 
 class AgenteTutorOllama(AgenteOllamaBase):
-    def __init__(self):
+    def __init__(self, usar_rag=False):
         super().__init__("ProfesorAI", "tutor académico especializado en matemáticas")
+        self.usar_rag = usar_rag
+        if usar_rag:
+            self.rag = RAG("base_conocimiento")
     
     def explicar_tema(self, tema):
-        prompt = f"Explica de manera simple y clara el tema: {tema}. Incluye ejemplos prácticos."
+        if self.usar_rag:
+            contexto = self.rag.recuperar_contexto(tema)
+            prompt = (
+                f"Tema: {tema}\n\n"
+                f"Ayúdate del siguiente contexto para explicar el tema:\n"
+                f"{contexto}\n\n"
+                f"Explica el tema de forma clara y con ejemplos prácticos."
+            )
+        else:
+            prompt = f"Explica de manera simple y clara el tema: {tema}. Incluye ejemplos prácticos."
         return self.generar_respuesta(prompt)
 
 class AgenteEvaluadorOllama(AgenteOllamaBase):
@@ -55,4 +65,4 @@ class AgenteAsistenteOllama(AgenteOllamaBase):
     
     def resolver_duda(self, pregunta):
         prompt = f"Ayúdame a resolver esta duda paso a paso: {pregunta}"
-        return self.generar_respuesta(prompt) 
+        return self.generar_respuesta(prompt)

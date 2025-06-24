@@ -1,0 +1,13 @@
+La derivada de una función mide su tasa de cambio instantánea. Es fundamental en cálculo diferencial.
+
+Reglas comunes:
+- Derivada de xⁿ es n·xⁿ⁻¹
+- Derivada de sin(x) es cos(x)
+- Derivada de eˣ es eˣ
+
+Ejemplo:
+Si f(x) = x², entonces f'(x) = 2x.
+
+Aplicaciones: optimización, física, tasas de crecimiento.
+
+El límite es otro concepto esencial. Límite de f(x) cuando x→a indica el valor que f(x) se aproxima.

@@ -1,0 +1,11 @@
+La estadística se divide en:
+1. Estadística descriptiva: resume datos (media, mediana, moda, desviación estándar).
+2. Estadística inferencial: saca conclusiones sobre una población a partir de una muestra.
+
+La media es el promedio de los datos. La varianza mide la dispersión respecto a la media.
+
+La distribución normal es simétrica y en forma de campana. Es clave en teoría de probabilidad.
+
+Intervalo de confianza: rango donde se espera encontrar un valor poblacional con cierta probabilidad.
+
+La prueba de hipótesis evalúa si una afirmación sobre una población es consistente con los datos.

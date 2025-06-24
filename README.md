@@ -25,6 +25,9 @@ pip install -r requirements.txt
 python main.py
 ```
 
+### Si da error numpy:
+pip install "numpy<2"
+
 ## 🤖 Tus 3 Agentes
 
 1. **ProfesorAI** - Explica temas de manera detallada
