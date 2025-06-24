@@ -7,7 +7,7 @@ class CoordinadorMultiagentes:
     """
     
     def __init__(self):
-        print("🚀 Inicializando sistema multiagente...")
+        print("Inicializando sistema multiagente...")
         self.tutor = AgenteTutorOllama()
         self.evaluador = AgenteEvaluadorOllama()
         self.asistente = AgenteAsistenteOllama()
@@ -17,20 +17,20 @@ class CoordinadorMultiagentes:
             "asistente": self.asistente
         }
         self.historial = []
-        print("✅ Sistema multiagente inicializado")
+        print("Sistema multiagente inicializado")
     
     def listar_agentes(self):
         """Lista todos los agentes disponibles y sus capacidades"""
-        print("\n👥 Agentes del Sistema:")
+        print("\nAgentes del Sistema:")
         print("-" * 40)
         for nombre, agente in self.agentes.items():
-            print(f"🤖 {agente.presentarse()}")
+            print(f"{agente.presentarse()}")
             if nombre == "tutor":
-                print("   📚 Capacidades: Explicar conceptos, dar ejemplos, enseñar")
+                print("Capacidades: Explicar conceptos, dar ejemplos, enseñar")
             elif nombre == "evaluador":
-                print("   📝 Capacidades: Crear exámenes, generar preguntas, evaluar")
+                print("Capacidades: Crear exámenes, generar preguntas, evaluar")
             elif nombre == "asistente":
-                print("   💡 Capacidades: Resolver dudas, asistir paso a paso")
+                print("Capacidades: Resolver dudas, asistir paso a paso")
         print()
     
     def procesar_consulta(self, tipo_consulta, contenido):
@@ -54,7 +54,7 @@ class CoordinadorMultiagentes:
             respuesta = self.asistente.resolver_duda(contenido)
             agente_usado = "asistente"
         else:
-            return "❌ Tipo de consulta no reconocido"
+            return "Tipo de consulta no reconocido"
         
         # Registrar en historial
         resultado = {
@@ -70,35 +70,35 @@ class CoordinadorMultiagentes:
         """
         Demuestra colaboración entre agentes trabajando en el mismo tema
         """
-        print(f"\n🔄 Colaboración de agentes en el tema: '{tema}'")
+        print(f"\nColaboración de agentes en el tema: '{tema}'")
         print("=" * 60)
         
         # 1. Tutor explica el tema
-        print("\n🎓 PASO 1: Tutor explica el concepto")
+        print("\nPASO 1: Tutor explica el concepto")
         print("-" * 30)
         explicacion = self.tutor.explicar_tema(tema)
         print(explicacion)
         
         # 2. Evaluador crea una pregunta basada en la explicación
-        print("\n📝 PASO 2: Evaluador crea pregunta de evaluación")
+        print("\nPASO 2: Evaluador crea pregunta de evaluación")
         print("-" * 30)
         pregunta = self.evaluador.crear_pregunta(tema)
         print(pregunta)
         
         # 3. Asistente ofrece ayuda adicional
-        print("\n💡 PASO 3: Asistente ofrece tips de estudio")
+        print("\nPASO 3: Asistente ofrece tips de estudio")
         print("-" * 30)
         ayuda = self.asistente.resolver_duda(f"¿Cómo puedo estudiar mejor {tema}?")
         print(ayuda)
         
-        print("\n✅ Colaboración completada")
+        print("\nColaboración completada")
         return True
     
     def mostrar_estadisticas(self):
         """Muestra estadísticas de uso del sistema"""
-        print(f"\n📊 Estadísticas del Sistema")
+        print(f"\nEstadísticas del Sistema")
         print("=" * 30)
-        print(f"💬 Total de consultas: {len(self.historial)}")
+        print(f"Total de consultas: {len(self.historial)}")
         
         # Contar por tipo de agente
         contadores = {"tutor": 0, "evaluador": 0, "asistente": 0}
@@ -106,11 +106,11 @@ class CoordinadorMultiagentes:
             if "agente_usado" in entrada:
                 contadores[entrada["agente_usado"]] += 1
         
-        print("🤖 Uso por agente:")
+        print("Uso por agente:")
         for agente, count in contadores.items():
             print(f"   {agente.capitalize()}: {count} consultas")
         
-        print(f"⏰ Última actividad: {self.historial[-1]['timestamp'] if self.historial else 'Ninguna'}")
+        print(f"Última actividad: {self.historial[-1]['timestamp'] if self.historial else 'Ninguna'}")
     
     def _obtener_timestamp(self):
         """Obtiene timestamp actual"""
